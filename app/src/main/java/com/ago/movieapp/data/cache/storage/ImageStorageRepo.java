@@ -7,6 +7,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.widget.ImageView;
 
+import com.ago.movieapp.R;
 import com.ago.movieapp.network.EndPoints;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;

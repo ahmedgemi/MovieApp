@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 UserPreference.getInstance().setID(profile.getId());
                 UserPreference.getInstance().setName(profile.getFirstName());
                 UserPreference.getInstance().setImageURL(profile.getProfilePictureUri(500,500).toString());
+
+                goHome();
             }
 
             @Override
@@ -75,6 +77,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
 
 
+    }
+
+    private void goHome(){
+
+        Intent intent = new Intent(this,HomeActivity.class);
+        startActivity(intent);
+
+        finish();
     }
 
     @Override

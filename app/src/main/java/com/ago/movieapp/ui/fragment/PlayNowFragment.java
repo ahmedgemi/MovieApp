@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -22,11 +23,12 @@ import com.ago.movieapp.ui.adapter.MovieListAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayNowFragment extends Fragment implements MovieListContract.IMovieListView {
+public class PlayNowFragment extends Fragment implements MovieListContract.IMovieListView,View.OnClickListener {
 
     private View view;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
+    private LinearLayout linearLayout_refresh;
 
     private List<Movie> movieList;
     private MovieListAdapter adapter;
@@ -54,9 +56,15 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
         recyclerView.setAdapter(adapter);
 
         progressBar = view.findViewById(R.id.progressBar);
+
+        linearLayout_refresh = view.findViewById(R.id.linearLayout_refresh);
+        linearLayout_refresh.setOnClickListener(this);
     }
 
     private void getPlayNowMovies(){
+
+        linearLayout_refresh.setVisibility(View.GONE);
+
         movieList.clear();
         new MoviePresenter(this,MovieType.PLAY_NOW).getPlayNowMovies();
     }
@@ -80,11 +88,24 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
     @Override
     public void onReceiveMovies(List<Movie> list) {
         if (list == null || list.isEmpty()){
-
+            linearLayout_refresh.setVisibility(View.VISIBLE);
             return;
         }
 
+        linearLayout_refresh.setVisibility(View.GONE);
+
         movieList.addAll(list);
         adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.linearLayout_refresh:
+                getPlayNowMovies();
+                break;
+        }
+
     }
 }
