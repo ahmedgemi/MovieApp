@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.ago.movieapp.ui.fragment.FavoriteFragment;
 import com.ago.movieapp.ui.fragment.PlayNowFragment;
 import com.ago.movieapp.ui.fragment.TopMoviesFragment;
 
@@ -25,7 +26,7 @@ public class TabsAdapter extends FragmentPagerAdapter {
                 return new TopMoviesFragment();
 
             case 2:
-                return new PlayNowFragment();
+                return new FavoriteFragment();
 
         }
         return null;

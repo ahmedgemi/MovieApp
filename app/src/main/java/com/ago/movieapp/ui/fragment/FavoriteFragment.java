@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.ago.movieapp.R;
 import com.ago.movieapp.data.model.Movie;
@@ -22,7 +21,7 @@ import com.ago.movieapp.ui.adapter.MovieListAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayNowFragment extends Fragment implements MovieListContract.IMovieListView {
+public class FavoriteFragment extends Fragment implements MovieListContract.IMovieListView {
 
     private View view;
     private RecyclerView recyclerView;
@@ -42,7 +41,7 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
         adapter = new MovieListAdapter(getActivity(),movieList);
 
         initUI();
-        getPlayNowMovies();
+        getFavoriteMovies();
 
         return view;
     }
@@ -56,9 +55,9 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
         progressBar = view.findViewById(R.id.progressBar);
     }
 
-    private void getPlayNowMovies(){
+    private void getFavoriteMovies(){
         movieList.clear();
-        new MoviePresenter(this,MovieType.PLAY_NOW).getPlayNowMovies();
+        new MoviePresenter(this,MovieType.FAVORITE).getFavoriteMovies();
     }
 
     @Override
@@ -73,8 +72,7 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
 
     @Override
     public void showErrorMsg(String msg) {
-        if (msg!=null)
-            Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
@@ -88,3 +86,4 @@ public class PlayNowFragment extends Fragment implements MovieListContract.IMovi
         adapter.notifyDataSetChanged();
     }
 }
+

@@ -10,45 +10,65 @@ public class Movie extends BaseModel{
     @SerializedName("vote_count")
     @Expose
     private Integer voteCount;
+
     @SerializedName("id")
     @Expose
     private Integer id;
+
     @SerializedName("video")
     @Expose
     private Boolean video;
+
     @SerializedName("vote_average")
     @Expose
     private Double voteAverage;
+
     @SerializedName("title")
     @Expose
     private String title;
+
     @SerializedName("popularity")
     @Expose
     private Double popularity;
+
     @SerializedName("poster_path")
     @Expose
     private String posterPath;
+
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
+
     @SerializedName("original_title")
     @Expose
     private String originalTitle;
+
     @SerializedName("genre_ids")
     @Expose
     private List<Integer> genreIds = null;
+
     @SerializedName("backdrop_path")
     @Expose
     private String backdropPath;
+
     @SerializedName("adult")
     @Expose
     private Boolean adult;
+
     @SerializedName("overview")
     @Expose
     private String overview;
+
     @SerializedName("release_date")
     @Expose
     private String releaseDate;
+
+
+    private int type; // 0 => PlayNow,  1=> Popular
+
+    private int favorite; // 0= false, 1=> true
+
+
 
     public Integer getVoteCount() {
         return voteCount;
@@ -160,5 +180,21 @@ public class Movie extends BaseModel{
 
     public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public int getType() { // 0 => PlayNow,  1=> Popular
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    public int getFavorite() { // 0= false, 1=> true
+        return favorite;
+    }
+
+    public void setFavorite(int favorite) {
+        this.favorite = favorite;
     }
 }

@@ -10,6 +10,7 @@ public interface MovieListContract {
 
         void showProgress();
         void hideProgress();
+        void showErrorMsg(String msg);
 
         void onReceiveMovies(List<Movie> list);
     }

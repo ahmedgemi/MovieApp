@@ -10,9 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.ago.movieapp.R;
 import com.ago.movieapp.data.model.Movie;
+import com.ago.movieapp.data.model.enums.MovieType;
 import com.ago.movieapp.mvpContract.MovieListContract;
 import com.ago.movieapp.presenter.MoviePresenter;
 import com.ago.movieapp.ui.adapter.MovieListAdapter;
@@ -56,7 +58,7 @@ public class TopMoviesFragment extends Fragment implements MovieListContract.IMo
 
     private void getPopularMovies(){
         movieList.clear();
-        new MoviePresenter(this).getTopMovies();
+        new MoviePresenter(this,MovieType.TOP).getTopMovies();
     }
 
     @Override
@@ -67,6 +69,12 @@ public class TopMoviesFragment extends Fragment implements MovieListContract.IMo
     @Override
     public void hideProgress() {
         progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showErrorMsg(String msg) {
+        if (msg!=null)
+            Toast.makeText(getActivity(),msg,Toast.LENGTH_SHORT).show();
     }
 
     @Override
