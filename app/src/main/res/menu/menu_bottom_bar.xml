@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_play_now"
+        android:icon="@drawable/baseline_movie_filter_black_24"
+        android:title="Play Now"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_top"
+        android:icon="@drawable/baseline_stars_black_24"
+        android:title="Top Movies"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_fav"
+        android:icon="@drawable/baseline_favorite_black_24"
+        android:title="Favorites"
+        app:showAsAction="ifRoom" />
+
+</menu>
