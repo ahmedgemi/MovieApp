@@ -41,9 +41,17 @@ public class FavoriteFragment extends Fragment implements MovieListContract.IMov
         adapter = new MovieListAdapter(getActivity(),movieList);
 
         initUI();
-        getFavoriteMovies();
+
 
         return view;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // call onResume to get updated favorites on runtime
+        getFavoriteMovies();
     }
 
     private void initUI(){
