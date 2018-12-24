@@ -103,6 +103,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.textView_skip:
                 intent = new Intent(this,HomeActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
     }
