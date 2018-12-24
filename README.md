@@ -11,3 +11,6 @@ Android Movie Listing application based on APIs of : https://www.themoviedb.org
 - Save User's favorite movies
 - Use Shared Element Transition animation
 - Use CollapsingToolbarLayout wedgit
+#Watch Demo
+[![Watch the video](https://img.youtube.com/vi/erYIWyvKjf0/maxresdefault.jpg)](https://youtu.be/erYIWyvKjf0)
+
